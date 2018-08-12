@@ -1,0 +1,28 @@
+{
+  "name": "chatapp",
+  "version": "0.0.1",
+  "description": "Chatting app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mayank2k16/ChatApp.git"
+  },
+  "author": "Mayank",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mayank2k16/ChatApp/issues"
+  },
+  "homepage": "https://github.com/mayank2k16/ChatApp#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "connect": "^3.6.6",
+    "express": "^4.16.3",
+    "mongoose": "^5.2.7",
+    "nodemon": "^1.18.3",
+    "serve-static": "^1.13.2",
+    "socket.io": "^2.1.1"
+  }
+}
