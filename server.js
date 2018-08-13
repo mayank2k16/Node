@@ -1,9 +1,22 @@
 var events = require('events');
+var util = require('util');
 
-var myEmiter = new events.EventEmitter();
+var person = function(name){
+  this.name = name;
+};
 
-myEmiter.on('clik',function(msg){
-    console.log(msg);
+util.inherits(person,events.EventEmitter);
+
+var mayank = new person("Mayank");
+var inzy = new person("Inzy");
+var subham = new person("subham");
+
+var buddies = [mayank,inzy,subham];
+
+buddies.forEach(function(names){
+     names.on('speak',function(msg){
+        console.log(names.name + " said " + msg);
+     });
 });
-
-myEmiter.emit('clik','event is handled');
+mayank.emit('speak','Fuck you chutiyon');
+inzy.emit('speak','i m inzamam');
