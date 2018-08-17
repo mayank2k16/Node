@@ -1,22 +1,11 @@
-var events = require('events');
-var util = require('util');
+var http = require('http');
+var fs = require('fs');
 
-var person = function(name){
-  this.name = name;
-};
-
-util.inherits(person,events.EventEmitter);
-
-var mayank = new person("Mayank");
-var inzy = new person("Inzy");
-var subham = new person("subham");
-
-var buddies = [mayank,inzy,subham];
-
-buddies.forEach(function(names){
-     names.on('speak',function(msg){
-        console.log(names.name + " said " + msg);
-     });
+var server = http.createServer(function(req,res){
+    res.writeHead(200, {'Content-Type':'text/plain'});
+    var readstream = fs.createReadStream(__dirname + '/readme.txt','utf-8');
+    readstream.pipe(res);
 });
-mayank.emit('speak','Fuck you chutiyon');
-inzy.emit('speak','i m inzamam');
+
+server.listen(3000);
+console.log('listening');
